@@ -1,0 +1,63 @@
+<nz-layout class="h-screen overflow-hidden" >
+  <nz-header class="p-0 w-full max-h-12 bg-white">
+    <div class="relative h-12 p-0 bg-white shadow flex items-center justify-between">
+      <div class="flex items-center justify-center w-[256px]">
+        <div class="sidebar-logo">
+          <a routerLink="/">
+            <img src="assets/logo.svg" alt="logo" class="h-8">
+          </a>
+        </div>
+      </div>
+      <div
+        class="flex cursor-pointer pr-16 justify-center items-center"
+        nz-dropdown
+        nzTrigger="click"
+        [nzDropdownMenu]="avatar"
+        nzOverlayClassName="-mt-2">
+        <nz-avatar [nzText]="user?.username ?? ''"></nz-avatar>
+        <span class="px-1">{{ user?.username }}</span>
+      </div>
+    </div>
+  </nz-header>
+  <nz-layout>
+    <nz-sider class="relative min-h-screen shadow z-10"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null">
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-menu-item nzMatchRouter>
+          <i nz-icon nzType="calendar"></i>
+          <span><a routerLink="/timesheet">Mes imputations</a></span>
+        </li>
+        <li nz-menu-item nzMatchRouter>
+          <i nz-icon nzType="project"></i>
+          <span><a routerLink="/tasks">Gestion des tâches</a></span>
+        </li>
+      </ul>
+    </nz-sider>
+
+    <nz-content class="m-2">
+      <div class="h-full overflow-y-auto">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+<nz-dropdown-menu #avatar="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item>
+      <span class="w-full flex items-center">
+        <span nz-icon nzType="user" nzTheme="outline"></span>
+        <span class="pl-2">Modifier mot de passe</span>
+      </span>
+    </li>
+    <li nz-menu-item nzDanger (click)="logout()">
+      <span class="w-full flex items-center">
+        <span nz-icon nzType="logout" nzTheme="outline"></span>
+        <span class="pl-2">Déconnexion</span>
+      </span>
+    </li>
+  </ul>
+</nz-dropdown-menu>

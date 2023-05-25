@@ -1,0 +1,16 @@
+{
+  "bracketSameLine": true,
+  "printWidth": 120,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 160,
+        "tabWidth": 2,
+        "useTabs": false,
+        "endOfLine": "auto",
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<nz-card nzTitle="My timesheet">
+  <div class="flex mb-10 justify-between items-center">
+    <nz-range-picker nzMode="week"></nz-range-picker>
+    <nz-select class="w-80" nzPlaceHolder="Statut">
+      <nz-option nzValue="Completed" nzLabel="Completed"></nz-option>
+      <nz-option nzValue="In Progress" nzLabel="In Progress"></nz-option>
+    </nz-select>
+  </div>
+  <nz-table #basicTable [nzData]="data" [nzFrontPagination]="false" class="overflow-x-auto">
+    <thead>
+    <tr>
+      <th>Projet livraison</th>
+      <th>Project</th>
+      <th>Tâche</th>
+      <th>Statut</th>
+      <th>Lundi</th>
+      <th>Mardi</th>
+      <th>Mercredi</th>
+      <th>Jeudi</th>
+      <th>Vendredi</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.projectDelivery }}</td>
+      <td>{{ data.project }}</td>
+      <td>{{ data.label }}</td>
+      <td>{{ data.status }}</td>
+      <td>{{ data.worklogs.Monday | duration}}</td>
+      <td>{{ data.worklogs.Tuesday | duration}}</td>
+      <td>{{ data.worklogs.Wednesday | duration}}</td>
+      <td>{{ data.worklogs.Thursday | duration}}</td>
+      <td>{{ data.worklogs.Friday | duration }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</nz-card>

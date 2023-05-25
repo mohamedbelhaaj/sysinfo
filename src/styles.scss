@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind utilities;
+
+
+.container {
+  @apply flex flex-col h-full w-full;
+}
+
+.sub-container {
+  @apply flex-1 p-1 bg-white;
+}
+
+.ant-form-item {
+  @apply mb-1;
+}
+
+.anticon {
+  @apply align-baseline;
+}
+

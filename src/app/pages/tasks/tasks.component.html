@@ -1,0 +1,43 @@
+<nz-card nzTitle="My timesheet">
+  <div class="flex mb-10 justify-between items-center">
+    <nz-range-picker nzMode="week"></nz-range-picker>
+    <nz-select class="w-80" nzPlaceHolder="Statut">
+      <nz-option nzValue="Completed" nzLabel="Completed"></nz-option>
+      <nz-option nzValue="In Progress" nzLabel="In Progress"></nz-option>
+    </nz-select>
+  </div>
+  <nz-table #basicTable [nzData]="data" [nzFrontPagination]="false" class="overflow-x-auto">
+    <thead>
+    <tr>
+      <th>Projet livraison</th>
+      <th>Project</th>
+      <th>Tâche</th>
+      <th>Statut</th>
+      <th>Créée par</th>
+      <th>Assigné à</th>
+      <th>Publique</th>
+      <th>Charge estimée (Jour)</th>
+      <th>Charge consommée (Jour)</th>
+      <th>Charge à imputer (Jour)</th>
+      <th>première imputation</th>
+      <th>statut</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.projectDelivery }}</td>
+      <td>{{ data.project }}</td>
+      <td>{{ data.label }}</td>
+      <td>{{ data.status }}</td>
+      <td>{{ data.createdBy }}</td>
+      <td>{{ data.assignee }}</td>
+      <td>{{ data.isPublic }}</td>
+      <td>{{ data.estimatedDays }}</td>
+      <td>{{ data.consumedDays }}</td>
+      <td>{{ data.inputedDays }}</td>
+      <td>{{ data.firstInputDate | date }}</td>
+      <td>{{ data.status}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</nz-card>

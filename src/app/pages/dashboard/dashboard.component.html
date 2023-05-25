@@ -1,0 +1,51 @@
+<nz-card>
+  <div class="flex justify-between items-center">
+    <nz-range-picker nzMode="week" class="w-80"></nz-range-picker>
+    <button nz-button nzType="primary">Chercher</button>
+  </div>
+</nz-card>
+<div nz-row [nzGutter]="[12,12]" class="!mt-3">
+  <div nz-col [nzLg]="8" [nzSm]="24">
+    <nz-card class="!h-[600px]">
+      <div class="flex flex-col items-center gap-4 font-bold">
+        <nz-avatar [nzSize]="128" [nzText]="user?.username ?? ''"></nz-avatar>
+        <span class="text-2xl">{{user?.username}}</span>
+        <span>Ingénieur</span>
+        <span>Junior</span>
+      </div>
+    </nz-card>
+  </div>
+  <div nz-col [nzLg]="8" [nzSm]="24">
+    <nz-card class="!h-[600px]">
+      <div class="flex justify-between items-center">
+        <span>Statistique imputation</span>
+        <span class="flex items-center gap-0.5">
+          <nz-badge nzStatus="error" nzText="Late"></nz-badge>
+          <nz-badge nzStatus="success" nzText="On time"></nz-badge>
+        </span>
+      </div>
+      <div class="flex flex-col gap-1 font-semibold mt-2">
+        <nz-badge nzStatus="success" nzText="Task"></nz-badge>
+        <nz-badge nzStatus="processing" nzText="Bug Fix"></nz-badge>
+        <nz-badge nzStatus="success" nzText="Enhancement"></nz-badge>
+        <nz-badge nzStatus="success" nzText="Task 1"></nz-badge>
+        <nz-badge nzStatus="processing" nzText="Task 2"></nz-badge>
+        <nz-badge nzStatus="success" nzText="Task 3"></nz-badge>
+        <nz-badge nzStatus="error" nzText="Task 4"></nz-badge>
+        <nz-badge nzStatus="processing" nzText="Task 5"></nz-badge>
+        <nz-badge nzStatus="error" nzText="Task 6"></nz-badge>
+      </div>
+    </nz-card>
+  </div>
+  <div nz-col [nzLg]="8" [nzSm]="24">
+    <nz-card class="!h-[600px]">
+      <div class="flex justify-between items-center">
+        <span>Livraisons en cours</span>
+        <span>Running</span>
+      </div>
+      <nz-list nzSize="small">
+        <nz-list-item *ngFor="let item of tasks">{{item.projectDelivery}}</nz-list-item>
+      </nz-list>
+    </nz-card>
+  </div>
+</div>
